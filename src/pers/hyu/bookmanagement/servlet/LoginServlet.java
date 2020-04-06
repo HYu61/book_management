@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
 		// 用户存在
 		if (userIndex != -1) {
 			request.getSession().setAttribute("user", userList.get(userIndex));
-			response.sendRedirect(request.getContextPath() + "/pages/categoryList.jsp");
+			response.sendRedirect(request.getContextPath() + "/admin/categoryList.jsp");
 			// 用户不存在
 		} else {
 			request.setAttribute("msg", "用户名或密码无效");

@@ -81,6 +81,7 @@ public class VerifyCodeServlet extends HttpServlet {
 		sb = this.getWords('a', 'z', sb);
 		sb = this.getWords('A', 'Z', sb);
 		sb = this.getWords('0', '9', sb);
+		
 		String words = sb.toString();
 
 		// 用于存放验证码

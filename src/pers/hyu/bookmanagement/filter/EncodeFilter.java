@@ -32,22 +32,17 @@ public class EncodeFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest hSRequest = (HttpServletRequest) request;
 		HttpServletResponse hSResponse = (HttpServletResponse) response;
-		//获取uri
-		String uri = hSRequest.getRequestURI();
-		System.out.println("URI:   " + hSRequest.getRequestURI());
-		System.out.println("URL: ----   " +hSRequest.getRequestURL().toString());
-		//放行css，js，图片文件
-		if(uri.endsWith(".css") || uri.endsWith(".js") || uri.endsWith(".jpg") || uri.endsWith(".png")) {
+		
+		//放行验证码servlet
+		if (hSRequest.getRequestURI().endsWith("verifycode")) {
 			chain.doFilter(request, response);
-		}else {
-			hSRequest.setCharacterEncoding(this.encode);
-			hSResponse.setContentType("text/html;charset=" + this.encode);
-			// pass the request along the filter chain
-			chain.doFilter(request, response);
+			return;
 		}
 		// 设置encoding
-		
-
+		hSRequest.setCharacterEncoding(this.encode);
+		hSResponse.setContentType("text/html;charset=" + this.encode);
+		// pass the request along the filter chain
+		chain.doFilter(request, response);
 	}
 
 	@Override
