@@ -17,6 +17,35 @@
   <listener-class>pers.hyu.bookmanagement.listener.InitListener</listener-class>
   </listener>
   
+  <!-- 
+  <filter>
+    <filter-name>encodeFilter</filter-name>
+    <filter-class>pers.hyu.bookmanagement.filter.EncodeFilter</filter-class>
+    <init-param>
+      <param-name>encode</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+   -->
+  <!-- Auth filter -->
+  <filter>
+    <filter-name>authFilter</filter-name>
+    <filter-class>pers.hyu.bookmanagement.filter.AuthFilter</filter-class>
+  </filter>
+  
+  <!--  
+  <filter-mapping>
+    <filter-name>encodeFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+    -->
+  <filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/pages/*</url-pattern>
+  </filter-mapping>
+  
+
   <!-- login servlet -->
   <servlet>
     <servlet-name>loginServlet</servlet-name>
@@ -24,7 +53,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>loginServlet</servlet-name>
-    <url-pattern>/login.do</url-pattern>
+    <url-pattern>/servlet/login</url-pattern>
   </servlet-mapping>
   
   <!-- 验证码servlet -->
@@ -54,6 +83,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>verifyCodeServlet</servlet-name>
-    <url-pattern>/verifycode</url-pattern>
+    <url-pattern>/servlet/verifycode</url-pattern>
   </servlet-mapping>
 </web-app>

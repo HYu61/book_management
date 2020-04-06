@@ -5,8 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <title>新建图书分类</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/add.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/add.css">
     </head>
     <body>
         <nav class="navbar navbar-default">

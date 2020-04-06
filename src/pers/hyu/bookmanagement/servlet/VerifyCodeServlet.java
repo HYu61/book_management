@@ -94,7 +94,7 @@ public class VerifyCodeServlet extends HttpServlet {
 			char showChar = words.charAt(random.nextInt(words.length()));
 			double theta = (random.nextInt(61) - 30) * Math.PI / 180;
 			g2d.setColor(Color.BLACK);
-			g2d.setFont(new Font("宋体", Font.BOLD, 20));
+			g2d.setFont(new Font("宋体", Font.BOLD, 22));
 			g2d.rotate(theta, space, 25);
 			g2d.drawString(String.valueOf(showChar), space, 25);
 			g2d.rotate(-theta, space, 25);

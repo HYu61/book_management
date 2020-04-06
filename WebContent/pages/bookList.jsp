@@ -5,8 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <title>图书后台管理</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
       
     </head>
 
@@ -14,10 +14,10 @@
        <header>
             <div class="container">
                     <nav>
-                            <a href="bookList.html" >图书信息管理</a>
+                            <a href="bookList.jsp" >图书信息管理</a>
                     </nav>
                     <nav>
-                            <a href="categoryList.html" >分类管理</a>
+                            <a href="categoryList.jsp" >分类管理</a>
                     </nav>
                    
             </div>
