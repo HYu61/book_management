@@ -15,12 +15,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int login(List<User> userList, User user) {
 		int result = -1;
-		for (User u : userList) {
-			if (user.getUserName().equals(u.getUserName()) && user.getPassword().equals(u.getPassword())) {
-				result = userList.indexOf(u);
-				break;
+		if (!userList.isEmpty()) {
+			for (User u : userList) {
+				if (user.getUserName().equals(u.getUserName()) && user.getPassword().equals(u.getPassword())) {
+					result = userList.indexOf(u);
+					break;
+				}
 			}
 		}
+
 		return result;
 	}
 

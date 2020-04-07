@@ -5,8 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <title>图书后台管理</title>
-        <link rel="stylesheet" href="../css/index.css">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/css/index.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
       
     </head>
 

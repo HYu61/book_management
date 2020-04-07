@@ -5,8 +5,9 @@
     <head>
         <meta charset="UTF-8">
         <title>新建图书分类</title>
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/add.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath }/css/add.css">
+        <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -20,13 +21,13 @@
         </nav>
         <div class="container">
             <div class="jumbotron">
-                <h1>Hello, XXX!</h1>
+                <h1>Hello, ${sessionScope.user.userName}</h1>
                 <p>请小心地新增图书分类，要是建了一个错误的就不好了。。。</p>
             </div>
             <div class="page-header">
                 <h3><small>新建</small></h3>
             </div>
-            <form class="form-horizontal" action="/addCategory" method="post">
+            <form class="form-horizontal" action="/servlet/addCategory" method="post" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">分类ID ：</label>
                     <div class="col-sm-8">
@@ -50,5 +51,29 @@
         <footer class="text-center" >
             copy@imooc
         </footer>
+        <script type="text/javascript">
+        	function validateForm(){
+        		var flag = true;
+        		var cateId = $("input[id='categoryId']").val();
+        		var cateName = $("input[id='categoryName']").val().trim();
+        		if(!cateId || !cateName ){
+        			alert("Id和名称不能为空");
+        			flag = false;
+        		}else {
+        			 flag = validateRegex(cateId);
+        		}
+        		return flag;
+        	}
+        	
+        	//验证id是否为ca开头4位数字结束
+        	function validateRegex(regxId){
+        		var patt = /^ca\d{4}$/;
+        		if(!patt.test(regxId)){
+        			alert('id格式不对，请以ca开头4位数字结尾');
+        			return false;
+        		}
+        		return true;
+        	}
+        </script>
     </body>
 </html>

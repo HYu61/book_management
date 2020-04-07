@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pers.hyu.bookmanagement.service.implement.CategoryServiceImpl;
+
 /**
- * Servlet implementation class Test
+ * Servlet implementation class DeleteCategory
  */
-@WebServlet("/servlet/Test")
-public class Test extends HttpServlet {
+@WebServlet("/servlet/deleteCategory")
+public class DeleteCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Test() {
+    public DeleteCategory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +28,15 @@ public class Test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().println("hello --- 你好");
+		// 获取要删除的cateId from param
+		String deleteCategoryId = request.getParameter("categoryId");
+		//删除cate
+		CategoryServiceImpl categoryService = new CategoryServiceImpl();
+		categoryService.deleteCategory(deleteCategoryId);
+		
+		//返回显示页面
+		//request.getRequestDispatcher(request.getContextPath() + "/admin/categoryList.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/admin/categoryList.jsp");
 	}
 
 	/**
