@@ -44,12 +44,12 @@
 		<url-pattern>/servlet/*</url-pattern>
 	</filter-mapping>
 	
- <!-- 
+ 	<!-- 登陆过滤器 对管理页面和servlet生效 -->
 	<filter-mapping>
 		<filter-name>authFilter</filter-name>
 		<url-pattern>/admin/*</url-pattern>
+		<url-pattern>/servlet/*</url-pattern>
 	</filter-mapping>
- -->
 
 	<!-- login servlet -->
 	<servlet>
@@ -88,6 +88,26 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>verifyCodeServlet</servlet-name>
-		<url-pattern>/servlet/verifycode</url-pattern>
+		<url-pattern>/servlet/verifyCode</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 添加分类servlet -->
+	<servlet>
+	<servlet-name>addCategoryServlet</servlet-name>
+	<servlet-class>pers.hyu.bookmanagement.servlet.AddCategoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>addCategoryServlet</servlet-name>
+	<url-pattern>/servlet/addCategory</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 删除分类servlet -->
+	<servlet>
+	<servlet-name>deleteCategoryServlet</servlet-name>
+	<servlet-class>pers.hyu.bookmanagement.servlet.DeleteCategoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>deleteCategoryServlet</servlet-name>
+	<url-pattern>/servlet/deleteCategory</url-pattern>
 	</servlet-mapping>
 </web-app>

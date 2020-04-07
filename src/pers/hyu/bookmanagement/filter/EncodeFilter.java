@@ -34,7 +34,7 @@ public class EncodeFilter implements Filter {
 		HttpServletResponse hSResponse = (HttpServletResponse) response;
 		
 		//放行验证码servlet
-		if (hSRequest.getRequestURI().endsWith("verifycode")) {
+		if (hSRequest.getRequestURI().endsWith("verifyCode")) {
 			chain.doFilter(request, response);
 			return;
 		}

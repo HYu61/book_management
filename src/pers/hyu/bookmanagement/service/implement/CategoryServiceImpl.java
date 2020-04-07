@@ -36,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
 		// 获取cate的index
 		int deleteIndex = searchCategory(categoryId);
 		if (deleteIndex != -1) {
-			categoryDb.remove(this.searchCategory(categoryId));
+			categoryDb.remove(deleteIndex);
 		}
 	}
 
@@ -54,7 +54,6 @@ public class CategoryServiceImpl implements CategoryService {
 			for (Category c : categoryDb) {
 				if (categoryId.equals(c.getCategoryId()) || categoryName.equalsIgnoreCase(c.getCategoryName())) {
 					result = 0;
-					System.out.println(result);
 					break;
 				}
 			}

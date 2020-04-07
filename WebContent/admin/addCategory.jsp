@@ -27,7 +27,7 @@
             <div class="page-header">
                 <h3><small>新建</small></h3>
             </div>
-            <form class="form-horizontal" action="/servlet/addCategory" method="post" onsubmit="return validateForm()">
+            <form class="form-horizontal" action="${pageContext.request.contextPath }/servlet/addCategory" method="post" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">分类ID ：</label>
                     <div class="col-sm-8">

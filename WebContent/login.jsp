@@ -35,7 +35,7 @@
 			<div class="code">
 				<input type="text" id="code" name="verifyCode" style="width: 150px">
 				&nbsp;&nbsp;&nbsp;&nbsp; <img
-					src="${pageContext.request.contextPath}/servlet/verifycode"
+					src="${pageContext.request.contextPath}/servlet/verifyCode"
 					style="width: 150px; height: 42px; vertical-align: middle;">
 				<p></p>
 			</div>
@@ -53,7 +53,7 @@
 						function() {
 							$(this).attr(
 									"src",
-									"${pageContext.request.contextPath}/servlet/verifycode?time="
+									"${pageContext.request.contextPath}/servlet/verifyCode?time="
 											+ new Date().getTime());
 						});
 

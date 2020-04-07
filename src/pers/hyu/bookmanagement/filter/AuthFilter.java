@@ -41,6 +41,11 @@ public class AuthFilter implements Filter {
 		HttpServletRequest hSRequest = (HttpServletRequest) request;
 		HttpServletResponse hSResponse = (HttpServletResponse) response;
 
+		// 放行验证码servlet 和 login servlet
+		if (hSRequest.getRequestURI().endsWith("verifyCode") || hSRequest.getRequestURI().endsWith("login") ) {
+			chain.doFilter(request, response);
+			return;
+		}
 		// 判断用户是否登陆
 		if (hSRequest.getSession().getAttribute("user") == null) {
 			hSRequest.setAttribute("msg", "请先登陆");

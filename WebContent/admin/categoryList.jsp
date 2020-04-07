@@ -51,6 +51,7 @@
                                 <td>${cate.categoryId }</td>
                                 <td>${cate.categoryName }</td>
                                 <td><a href="${pageContext.request.contextPath }/servlet/deleteCategory?categoryId=${cate.categoryId }">删除</a></td>
+                                
                             </tr>
                     </c:forEach>
                     </tbody>

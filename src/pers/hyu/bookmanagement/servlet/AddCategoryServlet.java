@@ -2,23 +2,23 @@ package pers.hyu.bookmanagement.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pers.hyu.bookmanagement.service.implement.CategoryServiceImpl;
 
 /**
- * Servlet implementation class AddCategory
+ * 添加图书分类
+ * @author hyu
+ *
  */
-@WebServlet("/servlet/addCategory")
-public class AddCategory extends HttpServlet {
+public class AddCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddCategory() {
+    public AddCategoryServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,4 +46,11 @@ public class AddCategory extends HttpServlet {
 		request.getRequestDispatcher(request.getContextPath() + "/admin/categoryList.jsp").forward(request, response);
 	}
 
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req,resp);
+	}
+	
+	
 }
