@@ -18,10 +18,9 @@ public interface BookService {
 
 	/**
 	 * 更新图书信息
-	 * @param bookId 要更新的图书Id
 	 * @param book 要更新的图书
 	 */
-	public void updateBook(String bookId, Book book);
+	public void updateBook(Book reaplaceBook);
 
 	/**
 	 * 根据图书id删除书籍

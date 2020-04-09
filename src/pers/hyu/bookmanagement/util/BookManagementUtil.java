@@ -21,7 +21,7 @@ import pers.hyu.bookmanagement.service.implement.CategoryServiceImpl;
  * @author hyu
  *
  */
-public class FileUploadUtil {
+public class BookManagementUtil {
 
 	/**
 	 * 按照指定格式重命名
@@ -35,20 +35,25 @@ public class FileUploadUtil {
 		if (bookId != null && fileName != null) {
 			int index = fileName.lastIndexOf('.');
 			if (index != -1) {
+				//获得文件扩张名
 				String fileExten = fileName.substring(index);
-
+				//新文件名
 				newFileName = bookId + "-image" + fileExten;
 			}else {
 				newFileName = bookId;
 			}
-
 		}
-
 		return newFileName;
 
 	}
 	
-	public  Book generateBook(HttpServletRequest req ) {
+	/**
+	 * 根据表单内容创建书籍
+	 * @param req 表单提交的request
+	 * @return 根据表单内容创建好的书籍
+	 */
+	public static Book generateBook(HttpServletRequest req ) {
+		//获取图书信息
 		String bookId;
 		String bookName;
 		String bookCategory;
@@ -67,7 +72,7 @@ public class FileUploadUtil {
 					
 				}else {
 					//图片存到bookImages文件夹中并重命名
-					String fileName = FileUploadUtil.fileRename(bookInfoMap.get("bookId"), fileItem.getName());
+					String fileName = BookManagementUtil.fileRename(bookInfoMap.get("bookId"), fileItem.getName());
 					String bookImageRealPath = req.getServletContext().getRealPath("/bookImages") + "/" + fileName;
 					fileItem.write(new File(bookImageRealPath));
 					bookInfoMap.put("bookImagePath", req.getContextPath() + "/bookImages/" + fileName );
@@ -95,6 +100,8 @@ public class FileUploadUtil {
 		bookPrice = Float.parseFloat(bookInfoMap.get("bookPrice")); 
 		bookImagePath = bookInfoMap.get("bookImagePath");
 		bookRemark = bookInfoMap.get("remarks");
+		
+		//根据表单内容创建书籍
 		Book book = new Book(bookId, bookName, bookCategory, bookPrice, bookImagePath, bookRemark);
 		
 		return book;
