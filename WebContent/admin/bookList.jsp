@@ -13,6 +13,8 @@
 	href="${pageContext.request.contextPath }/css/bootstrap.min.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/book-management.js"></script>
 </head>
 
 <body>
@@ -77,8 +79,6 @@
 					</tr>
 				</thead>
 				<tbody>
-
-
 					<c:if test="${bookList.size() > 0 }">
 						<c:forEach items="${bookList }" var="book" varStatus="idx">
 							<tr>
@@ -91,7 +91,7 @@
 										type="currency" /></td>
 								<td><img width="50" height="50"
 									src="${book.bookImagePath }"></td>
-								<td><a href="/updateBook?bookId=book0001">修改</a> <a
+								<td><a href="${pageContext.request.contextPath }/servlet/updateBook?bookId=${book.bookId }">修改</a> <a
 									href="${pageContext.request.contextPath }/servlet/deleteBook?bookId=${book.bookId }">删除</a></td>
 								<!--在循环显示数据时，此处的book0001可以用EL表达式进行替换-->
 
@@ -112,18 +112,8 @@
 	<footer> copy@慕课网 </footer>
 	<script type="text/javascript">
         $(function(){
-        	showErrorMessage();
+        	showErrorMessage($("#msg"));
         })
-        
-        //显示category存在的信息
-        function showErrorMessage(){
-        	$("#msg").hide();
-        	var msg = $("#msg").text();
-        	if(msg != "" && msg !=null){
-        		alert(msg);
-        	}
-        }
-        
         </script>
 </body>
 </html>

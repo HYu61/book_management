@@ -12,6 +12,8 @@
 	href="${pageContext.request.contextPath }/css/bootstrap.min.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript"
+	src="${pageContext.request.contextPath }/js/book-management.js"></script>
 </head>
 
 <body>
@@ -78,17 +80,8 @@
 	<footer> copy@慕课网 </footer>
 	<script type="text/javascript">
         $(function(){
-        	showErrorMessage();
+        	showErrorMessage($("#msg"));
         })
-        
-        //显示category存在的信息
-        function showErrorMessage(){
-        	$("#msg").hide();
-        	var msg = $("#msg").text();
-        	if(msg != "" && msg !=null){
-        		alert(msg);
-        	}
-        }
         </script>
 </body>
 </html>

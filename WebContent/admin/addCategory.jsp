@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath }/css/add.css">
         <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.4.1.min.js"></script>
+         <script type="text/javascript" src="${pageContext.request.contextPath }/js/book-management.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -56,23 +57,17 @@
         		var flag = true;
         		var cateId = $("input[id='categoryId']").val();
         		var cateName = $("input[id='categoryName']").val().trim();
-        		if(!cateId || !cateName ){
-        			alert("Id和名称不能为空");
+        		
+        		//id正则表达式
+            	var regxPatt = /^ca\d{4}$/;          	
+            	if(!checkRegexMatch(regxPatt, cateId)){
+            		alert("格式不对，请以ca开头4位数字结尾！");
+            		flag = false;
+            	}else if(!cateName ){
+        			alert("名称不能为空");
         			flag = false;
-        		}else {
-        			 flag = validateRegex(cateId);
         		}
         		return flag;
-        	}
-        	
-        	//验证id是否为ca开头4位数字结束
-        	function validateRegex(regxId){
-        		var patt = /^ca\d{4}$/;
-        		if(!patt.test(regxId)){
-        			alert('id格式不对，请以ca开头4位数字结尾');
-        			return false;
-        		}
-        		return true;
         	}
         </script>
     </body>

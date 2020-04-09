@@ -20,9 +20,11 @@ public class DeleteBookServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 获得bookid
 		String deleteBookId = req.getParameter("bookId");
+		//删除图书
 		new BookServiceImpl().deleteBook(deleteBookId);
 		//返回bookList页面
 		resp.sendRedirect(req.getContextPath() + "/admin/bookList.jsp");
+		
 		
 	}
 	

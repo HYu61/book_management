@@ -130,4 +130,14 @@
 		<servlet-name>deleteBookServlet</servlet-name>
 		<url-pattern>/servlet/deleteBook</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 修改图书servlet -->
+	<servlet>
+	<servlet-name>updateBookServlet</servlet-name>
+	<servlet-class>pers.hyu.bookmanagement.servlet.UpdateBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateBookServlet</servlet-name>
+		<url-pattern>/servlet/updateBook</url-pattern>
+	</servlet-mapping>
 </web-app>

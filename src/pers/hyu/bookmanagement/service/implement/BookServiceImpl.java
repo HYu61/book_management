@@ -15,22 +15,21 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public void addBook(Book book) {
-		
-			books.add(book);
-		
+	public void addBook(Book book) {	
+			books.add(book);	
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public void updateBook(String bookId, Book book) {
 		// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public void deleteBook(String bookId) {
 		// TODO Auto-generated method stub
-		Book deleteBook = getBooksByBookId(bookId);
+		Book deleteBook = getBookByBookId(bookId);
 		if(deleteBook != null) {
 			books.remove(deleteBook);
 		}
@@ -42,7 +41,7 @@ public class BookServiceImpl implements BookService {
 	 * 根据bookId查询book，返回查到的book或无结果返回null
 	 */
 	@Override
-	public Book getBooksByBookId(String bookId) {
+	public Book getBookByBookId(String bookId) {
 		// TODO Auto-generated method stub
 		Book book = null;
 		for(Book b : books) {
@@ -69,7 +68,5 @@ public class BookServiceImpl implements BookService {
 		}
 		return bookListByCate;
 	}
-
-	
 
 }

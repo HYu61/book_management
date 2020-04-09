@@ -86,7 +86,7 @@ public class AddBookServlet extends HttpServlet {
 		
 		BookServiceImpl bookServiceImpl = new BookServiceImpl();
 		//如果书籍id存在，不添加
-		if(bookServiceImpl.getBooksByBookId(bookId) == null) {
+		if(bookServiceImpl.getBookByBookId(bookId) == null) {
 			bookServiceImpl.addBook(book);
 		}else {
 			req.setAttribute("msg", "图书id: \""+ bookId +"\" 已存在，无法添加！");
