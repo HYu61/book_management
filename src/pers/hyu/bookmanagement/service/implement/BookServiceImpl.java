@@ -9,10 +9,16 @@ import pers.hyu.bookmanagement.service.BookService;
 public class BookServiceImpl implements BookService {
 	private static final List<Book> books = new ArrayList<Book>();
 	
+	
+	public static List<Book> getBooks() {
+		return books;
+	}
+
 	@Override
 	public void addBook(Book book) {
-		// TODO Auto-generated method stub
-
+		
+			books.add(book);
+		
 	}
 
 	@Override
@@ -24,6 +30,10 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void deleteBook(String bookId) {
 		// TODO Auto-generated method stub
+		Book deleteBook = getBooksByBookId(bookId);
+		if(deleteBook != null) {
+			books.remove(deleteBook);
+		}
 
 	}
 
@@ -34,16 +44,30 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book getBooksByBookId(String bookId) {
 		// TODO Auto-generated method stub
-		return null;
+		Book book = null;
+		for(Book b : books) {
+			if(bookId.equalsIgnoreCase(b.getBookId())) {
+				book = b;
+				break;
+			}
+		}
+		return book;
 	}
 
 	/**
 	 * 根据图书类别查询图书，返回查询到的该类别下的所有图书，如没有返回null
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public List<Book> getBooksByCategoryName(String catgoryName) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Book> bookListByCate = null;
+		for(Book b : books) {
+			if(catgoryName.equalsIgnoreCase(b.getBookCategory())) {
+				bookListByCate.add(b);
+			}
+		}
+		return bookListByCate;
 	}
 
 	

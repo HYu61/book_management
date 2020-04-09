@@ -110,4 +110,24 @@
 	<servlet-name>deleteCategoryServlet</servlet-name>
 	<url-pattern>/servlet/deleteCategory</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 添加图书servlet -->
+	<servlet>
+	<servlet-name>addBookServlet</servlet-name>
+	<servlet-class>pers.hyu.bookmanagement.servlet.AddBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addBookServlet</servlet-name>
+		<url-pattern>/servlet/addBook</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 删除图书servlet -->
+	<servlet>
+	<servlet-name>deleteBookServlet</servlet-name>
+	<servlet-class>pers.hyu.bookmanagement.servlet.DeleteBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteBookServlet</servlet-name>
+		<url-pattern>/servlet/deleteBook</url-pattern>
+	</servlet-mapping>
 </web-app>

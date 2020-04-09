@@ -31,6 +31,7 @@ public class DeleteCategoryServlet extends HttpServlet {
 		String deleteCategoryId = request.getParameter("categoryId");
 		//删除cate
 		CategoryServiceImpl categoryService = new CategoryServiceImpl();
+		
 		categoryService.deleteCategory(deleteCategoryId);
 		//返回显示页面
 		//request.getRequestDispatcher(request.getContextPath() + "/admin/categoryList.jsp").forward(request, response);
