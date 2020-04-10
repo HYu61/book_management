@@ -10,14 +10,3 @@ function showErrorMessage(item) {
 		alert(msg);
 	}
 }
-
-/**
- * 验证是否满足正则表达式
- * @param regxPatt 正则表达式
- * @param testFiled 要测试的field
- * @returns  true 符合正则表达式 ;false 不符合正则表达式
- */
-function checkRegexMatch(regxPatt, testFiled){
-	return regxPatt.test(testFiled)
-		
-}

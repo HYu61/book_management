@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import pers.hyu.bookmanagement.entity.User;
+import pers.hyu.bookmanagement.service.implement.BookServiceImpl;
+import pers.hyu.bookmanagement.service.implement.CategoryServiceImpl;
 
 /**
  * Application Lifecycle Listener implementation class InitListener
@@ -41,6 +43,8 @@ public class InitListener implements ServletContextListener {
 
 		// 把userList存到servletContext中
 		sce.getServletContext().setAttribute("userList", userList);
+		sce.getServletContext().setAttribute("categoryList", CategoryServiceImpl.getCategorydb());
+		sce.getServletContext().setAttribute("bookList", BookServiceImpl.getBooks());
 	}
 
 }

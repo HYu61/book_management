@@ -70,18 +70,20 @@ public class BookServiceImpl implements BookService {
 	}
 
 	/**
-	 * 根据图书类别查询图书，返回查询到的该类别下的所有图书，如没有返回null
+	 * 根据图书类别查询图书，返回查询到的该类别下的所有图书，如没有返回空list
 	 */
 	@SuppressWarnings("null")
 	@Override
-	public List<Book> getBooksByCategoryName(String catgoryName) {
+	public List<Book> getBooksByCategoryName(String categoryName) {
 		// TODO Auto-generated method stub
-		List<Book> bookListByCate = null;
-		for(Book b : books) {
-			if(catgoryName.equalsIgnoreCase(b.getBookCategory())) {
-				bookListByCate.add(b);
+		List<Book> bookListByCate = new ArrayList<Book>();
+		if(categoryName != null && books.size() > 0) {
+			for(Book b : books) {
+				if(categoryName.equalsIgnoreCase(b.getBookCategory())) {
+					bookListByCate.add(b);
+				}
 			}
-		}
+		}		
 		return bookListByCate;
 	}
 

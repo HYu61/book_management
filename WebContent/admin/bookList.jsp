@@ -13,7 +13,7 @@
 	href="${pageContext.request.contextPath }/css/bootstrap.min.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript"
+<script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/book-management.js"></script>
 </head>
 
@@ -56,8 +56,6 @@
 							id="searchContent" placeholder="输入要查询的分类" style="width: 250px">
 					</div>
 				</div>
-
-
 			</form>
 		</div>
 		<div class="container">
@@ -91,7 +89,9 @@
 										type="currency" /></td>
 								<td><img width="50" height="50"
 									src="${book.bookImagePath }"></td>
-								<td><a href="${pageContext.request.contextPath }/servlet/updateBook?bookId=${book.bookId }">修改</a> <a
+								<td><a
+									href="${pageContext.request.contextPath }/servlet/updateBook?bookId=${book.bookId }">修改</a>
+									<a
 									href="${pageContext.request.contextPath }/servlet/deleteBook?bookId=${book.bookId }">删除</a></td>
 								<!--在循环显示数据时，此处的book0001可以用EL表达式进行替换-->
 
@@ -113,6 +113,15 @@
 	<script type="text/javascript">
         $(function(){
         	showErrorMessage($("#msg"));
+        })
+        
+		//如果没有图书分类，阻止添加图书。
+        $("#fatie button").click(function(e){
+        	
+        	if(${applicationScope.categoryList.size()} == 0 || ${applicationScope.categoryList} == null){
+        		alert("还没有图书分类，请先去添加图书分类！");
+        		e.preventDefault();
+        	}
         })
         </script>
 </body>

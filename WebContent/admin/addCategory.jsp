@@ -60,7 +60,7 @@
         		
         		//id正则表达式
             	var regxPatt = /^ca\d{4}$/;          	
-            	if(!checkRegexMatch(regxPatt, cateId)){
+            	if(!regxPatt.test(cateId)){
             		alert("格式不对，请以ca开头4位数字结尾！");
             		flag = false;
             	}else if(!cateName ){

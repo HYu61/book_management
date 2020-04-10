@@ -29,10 +29,11 @@ public class DeleteCategoryServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 获取要删除的cateId from param
 		String deleteCategoryId = request.getParameter("categoryId");
-		//删除cate
-		CategoryServiceImpl categoryService = new CategoryServiceImpl();
 		
+		//删除cate 
+		CategoryServiceImpl categoryService = new CategoryServiceImpl();		
 		categoryService.deleteCategory(deleteCategoryId);
+		
 		//返回显示页面
 		//request.getRequestDispatcher(request.getContextPath() + "/admin/categoryList.jsp").forward(request, response);
 		response.sendRedirect(request.getContextPath() + "/admin/categoryList.jsp");

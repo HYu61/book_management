@@ -42,8 +42,9 @@ public class AddCategoryServlet extends HttpServlet {
 		}
 				
 		//把categoryList存到Servlet中并返回到分类显示页
-		request.getServletContext().setAttribute("categoryList", CategoryServiceImpl.getCategorydb());
+		//request.getServletContext().setAttribute("categoryList", CategoryServiceImpl.getCategorydb());
 		request.getRequestDispatcher(request.getContextPath() + "/admin/categoryList.jsp").forward(request, response);
+		//response.sendRedirect(request.getContextPath() + "/admin/categoryList.jsp");
 	}
 
 	

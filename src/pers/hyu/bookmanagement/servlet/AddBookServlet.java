@@ -33,7 +33,7 @@ public class AddBookServlet extends HttpServlet {
 		}
 	
 		//返回bookList页面
-		req.getServletContext().setAttribute("bookList", BookServiceImpl.getBooks());
+		//req.getServletContext().setAttribute("bookList", BookServiceImpl.getBooks());
 		req.getRequestDispatcher(req.getContextPath()+"/admin/bookList.jsp").forward(req, resp);
 		//resp.sendRedirect(req.getContextPath()+"/admin/bookList.jsp");
 		
